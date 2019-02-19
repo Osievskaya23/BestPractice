@@ -34,6 +34,21 @@ public class ArabRomeCalculatorTest {
     }
 
     @Test
+    public void testThatShouldCalculateExpressionWithNegativeArabNumbersInBrackets() {
+        ArabRomeCalculator calculator = new ArabRomeCalculator();
+        String expectedResult = "-4.0";
+        String actualResult = String.valueOf(calculator.calculate("* ((- 1 - 1) * (- 1 - 1)) / (- 1)"));
+        assertEquals(expectedResult, actualResult); // (4)
+    }
+
+    @Test
+    public void testThatShouldReturnFailSumOfTwoRomeNumbers() {
+        ArabRomeCalculator calculator = new ArabRomeCalculator();
+        String result = String.valueOf(calculator.calculate("I + V"));
+        if (!result.equals("VI")) { fail(); }
+    }
+
+    @Test
     public void testThatShouldReturnSumOfTwoRomeNumbers() {
         ArabRomeCalculator calculator = new ArabRomeCalculator();
         String expectedResult = "XXVII";
@@ -56,5 +71,4 @@ public class ArabRomeCalculatorTest {
         String actualResult = String.valueOf(calculator.calculate("((C - X) + (C / X))"));
         assertEquals(expectedResult, actualResult);
     }
-
 }

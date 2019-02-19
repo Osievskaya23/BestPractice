@@ -18,4 +18,12 @@ public class RangesTest {
         assertEquals(actualResult.toString(), expectedResult);
     }
 
+    @Test
+    public void secondTestThatShouldFindMonotoneAreasInArrayAndPutItInSquareBrackets() {
+        Ranges ranges = new Ranges();
+        String expectedResult = "[1 3][5][7]";
+        int[] array = new int[]{1, 2, 3 ,5, 7};
+        StringBuilder  actualResult = ranges.findRanges(array);
+        assertEquals(actualResult.toString(), expectedResult);
+    }
 }
