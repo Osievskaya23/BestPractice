@@ -1,13 +1,10 @@
 package com.list;
 
+import static org.junit.Assert.assertEquals;
+
 import list.MyArrayList;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class MyListTest {
 
@@ -41,63 +38,116 @@ public class MyListTest {
     }
 
     @Test
-    public void testThatShouldReturnElementFromTheArrayListByTheGivenIndex() {
+    public void testThatShouldReturnIntFromTheArrayListByTheGivenIndex() {
         assertEquals(5, (int) integerArrayList.get(2));
-        assertEquals("Valia", stringArrayList.get(0));
+    }
 
+    @Test
+    public void testThatShouldReturnStringFromTheArrayListByTheGivenIndex() {
+        assertEquals("Valia", stringArrayList.get(0));
+    }
+
+    @Test
+    public void testThatShouldReturnIntFromTheLinkedListByTheGivenIndex() {
         assertEquals(5, (int) integerLinkedList.get(2));
+    }
+
+    @Test
+    public void testThatShouldReturnStringFromTheLinkedListByTheGivenIndex() {
         assertEquals("Valia", stringLinkedList.get(0));
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void testThatShouldReturnExceptionIfGivenIndexIsOutOfBounds() {
+    public void testThatShouldReturnExceptionIfGivenIndexOfArrayListIsNegative() {
         integerArrayList.get(-1);
-        stringArrayList.get(17);
+    }
 
-        integerLinkedList.get(-1);
-        stringLinkedList.get(17);
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testThatShouldReturnExceptionIfGivenIndexOfArrayListIsGreaterThanSizeOfList() {
+        stringArrayList.get(17);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testThatShouldReturnExceptionIfGivenIndexOfLinkedListIsNegative() {
+        integerLinkedList.get(-5);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testThatShouldReturnExceptionIfGivenIndexOfLinkedListIsGreaterThanSizeOfList() {
+        stringLinkedList.get(1000);
     }
 
     @Test
-    public void testThatShouldAddElementToTheEndOfTheListAndReturnTrueIfItWasDone() {
+    public void testThatShouldAddIntToTheEndOfTheArrayListAndReturnTrueIfItWasDone() {
         integerArrayList.add(5);
         integerArrayList.add(6);
         assertEquals(6, integerArrayList.size());
+    }
 
+    @Test
+    public void testThatShouldAddStringToTheEndOfTheListAndReturnTrueIfItWasDone() {
         stringArrayList.add("Anton");
-        assertEquals(5, stringArrayList.size());
+        stringArrayList.add("Max");
+        assertEquals(6, stringArrayList.size());
+    }
 
-        integerLinkedList.add(5);
-        integerLinkedList.add(6);
-        assertEquals(6, integerLinkedList.size());
+    @Test
+    public void testThatShouldAddIntToTheEndOfTheLinkedListAndReturnTrueIfItWasDone() {
+        integerLinkedList.add(23);
+        integerLinkedList.add(14);
+        integerLinkedList.add(1);
+        assertEquals(7, integerLinkedList.size());
+    }
 
+    @Test
+    public void testThatShouldAddStringToTheEndOfTheLinkedListAndReturnTrueIfItWasDone() {
         stringLinkedList.add("Anton");
         assertEquals(5, stringLinkedList.size());
     }
 
     @Test
-    public void testThatShouldRemoveElementFromTheListAndReturnThisElement() {
+    public void testThatShouldRemoveIntFromTheArrayListAndReturnThisInt() {
         assertEquals(1, (int) integerArrayList.remove(0));
         assertEquals(3, integerArrayList.size());
+    }
 
+    @Test
+    public void testThatShouldRemoveStringFromTheArrayListAndReturnThisString() {
         stringArrayList.remove(3);
         assertEquals("Tolia", stringArrayList.remove(2));
         assertEquals(2, stringArrayList.size());
+    }
 
+    @Test
+    public void testThatShouldRemoveIntFromTheLinkedListAndReturnThisInt() {
         assertEquals(1, (int) integerLinkedList.remove(0));
         assertEquals(3, integerLinkedList.size());
+    }
 
+    @Test
+    public void testThatShouldRemoveStringFromTheLinkedListAndReturnThisString() {
         stringLinkedList.remove(3);
         assertEquals("Tolia", stringLinkedList.remove(2));
         assertEquals(2, stringLinkedList.size());
     }
 
     @Test
-    public void testThatShouldReturnSizeOfTheList() {
+    public void testThatShouldReturnSizeOfTheIntArrayList() {
         assertEquals(4, integerArrayList.size());
-        assertEquals(4, stringArrayList.size());
+    }
 
+    @Test
+    public void testThatShouldReturnSizeOfTheStringArrayList() {
+        assertEquals(4, stringArrayList.size());
+    }
+
+    @Test
+    public void testThatShouldReturnSizeOfTheIntLinkedList() {
         assertEquals(4, integerLinkedList.size());
+    }
+
+    @Test
+    public void testThatShouldReturnSizeOfTheStringLinkedList() {
         assertEquals(4, stringLinkedList.size());
     }
 }

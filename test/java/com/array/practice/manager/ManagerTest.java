@@ -1,22 +1,27 @@
 package com.array.practice.manager;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import static org.junit.Assert.*;
-
 @RunWith(JUnit4.class)
 public class ManagerTest {
 
     @Test
-    public void testThatShouldReturnFalseIfLengthAndAmountOfElementsAreNotEqual() {
+    public void firstTestThatShouldReturnFalseIfLengthAndAmountOfElementsAreNotEqual() {
         Manager manager = new Manager();
         boolean actualResult = manager.amountIsEqualLength(3, 4);
-        boolean actualResult1 = manager.amountIsEqualLength(4, 3);
         assertEquals(false, actualResult);
-        assertEquals(false, actualResult1);
+    }
+
+    @Test
+    public void secondTestThatShouldReturnFalseIfLengthAndAmountOfElementsAreNotEqual() {
+        Manager manager = new Manager();
+        boolean actualResult = manager.amountIsEqualLength(4, 3);
+        assertEquals(false, actualResult);
     }
 
     @Test
